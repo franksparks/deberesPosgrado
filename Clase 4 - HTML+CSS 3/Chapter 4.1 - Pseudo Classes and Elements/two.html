@@ -4,6 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 4.1 - Pseudo Classes and Elements 2</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-size: 2em;
+      }
+      span {
+        color: red;
+      }
+      span::before {
+        content: "[";
+      }
+      span::after {
+        content: "]";
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <h1>Chapter 4.1.2 - Pseudo classes and elements</h1>
+
+    <p>
+      Lorem ipsum <span>dolor</span> sit amet, consectetur adipiscing
+      <span>elit</span>, sed do eiusmod tempor incididunt ut labore et
+      <span>dolore</span> magna aliqua. Ut enim ad minim veniam,
+      <span>quis</span> nostrud exercitation ullamco laboris nisi ut aliquip ex
+      ea commodo <span>consequat</span>. Duis aute irure <span>dolor</span> in
+      reprehenderit in voluptate velit esse cillum <span>dolore</span> eu fugiat
+      nulla pariatur. Excepteur sint occaecat cupidatat non
+      <span>proident</span>, sunt in culpa qui officia deserunt mollit anim id
+      est <span>laborum</span>.
+    </p>
+  </body>
 </html>
