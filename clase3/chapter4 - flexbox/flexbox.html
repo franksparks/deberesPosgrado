@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox exercise</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        justify-content: space-between;
+      }
+
+      .black {
+        color: white;
+        background-color: black;
+        flex: 1;
+      }
+      .yellow {
+        flex: 7;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .left,
+      .right {
+        background-color: yellow;
+        width: 10em;
+      }
+
+      .gray {
+        color: white;
+        background-color: gray;
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="black"></div>
+      <div class="yellow">
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+      <div class="gray"></div>
+    </main>
+  </body>
+</html>

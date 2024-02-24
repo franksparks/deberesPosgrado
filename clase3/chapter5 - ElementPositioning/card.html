@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        margin: 0;
+      }
+      .card {
+        border: solid 2px white;
+        width: 24em;
+        height: 32em;
+        border-radius: 2em;
+        display: flex;
+        flex: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      .left {
+        position: absolute;
+        text-align: center;
+        font-size: 3em;
+        top: 0.5em;
+        left: 0.5em;
+      }
+
+      .mid {
+        color: white;
+        width: 15em;
+        height: 24em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      .mid_spades {
+        font-size: 8em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .right {
+        position: absolute;
+        text-align: center;
+        font-size: 3em;
+        bottom: 0.5em;
+        right: 0.5em;
+      }
+
+      .rotate {
+        transform: rotate(180deg);
+      }
+
+      div > p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card">
+        <div class="left">
+          <p>4</p>
+          <p>&spades;</p>
+        </div>
+        <div class="mid">
+          <div class="mid_spades">
+            <p>&spades;</p>
+            <p>&spades;</p>
+          </div>
+          <div class="mid_spades rotate">
+            <p>&spades;</p>
+            <p>&spades;</p>
+          </div>
+        </div>
+        <div class="right rotate">
+          <p>4</p>
+          <p>&spades;</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

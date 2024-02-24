@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-size: 2em;
+      }
+
+      th {
+        text-align: left;
+      }
+      th,
+      td {
+        padding: 0.3em;
+        border-bottom: 2px solid white;
+      }
+      .tag {
+        background-color: gray;
+        color: greenyellow;
+        padding: 0.01em;
+        border-radius: 5px;
+      }
+    </style>
+    <title>My table</title>
+  </head>
+  <body>
+    <h1>My table</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Text level</td>
+          <td>
+            <span class="tag">p</span>, <span class="tag">em</span>,
+            <span class="tag">strong</span>, <span class="tag">a</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Sections</td>
+          <td>
+            <span class="tag">body</span>, <span class="tag">article</span>,
+            <span class="tag">section</span>, <span class="tag">nav</span>,
+            <span class="tag">header</span>, <span class="tag">footer</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Images</td>
+          <td><span class="tag">img</span></td>
+        </tr>
+        <tr>
+          <td>Lists</td>
+          <td>
+            <span class="tag">ul</span>, <span class="tag">ol</span>,
+            <span class="tag">li</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Tables</td>
+          <td>
+            <span class="tag">table </span>, <span class="tag">thead</span>,
+            <span class="tag">tbody</span>, <span class="tag"> tr </span>,
+            <span class="tag">th</span>,
+            <span class="tag">td</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
