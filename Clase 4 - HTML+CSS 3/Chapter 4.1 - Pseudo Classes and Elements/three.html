@@ -4,6 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 4.1 - Pseudo Classes and Elements 3</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-size: 2em;
+      }
+      p {
+        text-decoration: underline;
+      }
+      .box {
+        outline: solid red 1px;
+        height: 30em;
+      }
+      a {
+        text-decoration: none;
+      }
+      a[href^="https://es.wikipedia"]
+      {
+        color: yellow;
+      }
+      a[href^="https://www.google"]
+      {
+        color: green;
+      }
+      a[href^="https://www.amazon"]
+      {
+        color: red;
+      }
+      a[href^="https"]::after {
+        content: " ⇒";
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <h1 id="top">Chapter 4.1 - Pseudo Classes and Elements 3</h1>
+    <p>Check for local link at the bottom of the page</p>
+    <a href="#bottom">Link to bottom</a>
+
+    <ul>
+      <li>
+        <a href="https://es.wikipedia.org/wiki/HTML" target="_blank"
+          >Wikipedia link - HTML</a
+        >
+      </li>
+      <li>
+        <a href="https://es.wikipedia.org/wiki/CSS" target="_blank"
+          >Wikipedia link - CSS</a
+        >
+      </li>
+      <li>
+        <a href="https://www.google.es" target="_blank">Google</a>
+      </li>
+      <li>
+        <a href="https://es.wikipedia.org/wiki/JavaScript" target="_blank"
+          >Wikipedia link - JavaScript</a
+        >
+      </li>
+      <li>
+        <a href="https://www.amazon.es" target="_blank">Amazon</a>
+      </li>
+      <div class="box"></div>
+      <a id="bottom" href="#top">Go back to top</a>
+    </ul>
+  </body>
 </html>
