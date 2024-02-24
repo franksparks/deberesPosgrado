@@ -4,6 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Selectors2 exercise</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      a {
+        text-decoration: none;
+      }
+      a[href^="https://es.wikipedia"]
+      {
+        color: yellow;
+      }
+      a[href^="https://www.google"]
+      {
+        color: green;
+      }
+      a[href^="https://www.amazon"]
+      {
+        color: red;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <h1>Chapter 3.6 - Selectors 2 exercise</h1>
+    <h2>My links</h2>
+    <ul>
+      <li>
+        <a href="https://es.wikipedia.org/wiki/HTML" target="_blank"
+          >Wikipedia link - HTML</a
+        >
+      </li>
+      <li>
+        <a href="https://es.wikipedia.org/wiki/CSS" target="_blank"
+          >Wikipedia link - CSS</a
+        >
+      </li>
+      <li>
+        <a href="https://www.google.es" target="_blank">Google</a>
+      </li>
+      <li>
+        <a href="https://es.wikipedia.org/wiki/JavaScript" target="_blank"
+          >Wikipedia link - JavaScript</a
+        >
+      </li>
+      <li>
+        <a href="https://www.amazon.es" target="_blank">Amazon</a>
+      </li>
+    </ul>
+  </body>
 </html>
