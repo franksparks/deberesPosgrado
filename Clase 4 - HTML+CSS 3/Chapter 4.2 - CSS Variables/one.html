@@ -3,7 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 4.2 - CSS Variables - Exercise 1</title>
+
+    <title>Chapter 4.2 - CSS Variables</title>
+    <style>
+      :root {
+        --top-color: red;
+        --sides-color: green;
+        --bottom-color: brown;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        justify-content: space-between;
+      }
+
+      .black {
+        color: white;
+        background-color: var(--top-color);
+        flex: 1;
+      }
+      .yellow {
+        flex: 7;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .left,
+      .right {
+        background-color: var(--sides-color);
+        width: 10em;
+      }
+
+      .gray {
+        color: white;
+        background-color: var(--bottom-color);
+        flex: 1;
+      }
+      p {
+        font-size: 2em;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <div class="black">
+        <p>
+          Configure the CSS variables to change the color of the div elements.
+        </p>
+      </div>
+
+      <div class="yellow">
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+      <div class="gray"></div>
+    </main>
+  </body>
 </html>
