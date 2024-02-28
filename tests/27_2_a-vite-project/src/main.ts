@@ -4,7 +4,6 @@ import "./style.css";
 function createParagraph(texto: string = "") {
   const p = document.createElement("p");
   p.textContent = texto || "<vacío>";
-  console.log(texto);
   return p;
 }
 
@@ -37,3 +36,19 @@ const span = createElement("span", "un trozo");
 div.appendChild(span);
 // Introducimos el div en el DOM
 document.body.appendChild(div);
+
+let num = NaN;
+
+console.log("My num is: " + num);
+
+if (Number.isNaN(num)) {
+  console.log("My num is NaN");
+} else {
+  console.log("My num is not NaN");
+}
+
+if (!Number.isNaN(num)) {
+  console.log(`${num} is NaN!`);
+}
+console.log(Number.isNaN(num));
+console.log(!Number.isNaN(num));
