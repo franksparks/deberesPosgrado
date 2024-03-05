@@ -30,7 +30,6 @@ const renderTodoItem = (todo: TodoItem) => {
     div.classList.toggle("done");
 
     // Estamos cambiando realmente el modelo o sólo el DOM?
-    console.log(todos);
   });
 
   return div;
@@ -45,10 +44,11 @@ const render = () => {
 };
 
 const form = document.querySelector("form");
-const input = document.querySelector<HTMLInputElement>('input[type="text]"');
+const input = document.querySelector<HTMLInputElement>('input[type="text"]');
 form?.addEventListener("submit", (e) => {
   // Prevenimos la recarga de la página
   e.preventDefault();
+
   const what = input?.value;
   if (input) {
     input.value = "";
