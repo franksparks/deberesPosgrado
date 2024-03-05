@@ -12,6 +12,9 @@ const todos: Array<TodoItem> = [
 const renderTodoItem = (todo: TodoItem) => {
   const div = document.createElement("div");
   div.classList.add("todo-item");
+  if (todo.done) {
+    div.classList.add("done");
+  }
 
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
@@ -20,6 +23,15 @@ const renderTodoItem = (todo: TodoItem) => {
   const text = document.createTextNode(todo.what);
 
   div.append(checkbox, text);
+
+  div.addEventListener("click", () => {
+    todo.toggleDone();
+    checkbox.checked = todo.done;
+    div.classList.toggle("done");
+
+    // Estamos cambiando realmente el modelo o sólo el DOM?
+    console.log(todos);
+  });
 
   return div;
 };
@@ -31,5 +43,22 @@ const render = () => {
   }
   todoDiv.append(...todos.map(renderTodoItem));
 };
+
+const form = document.querySelector("form");
+const input = document.querySelector<HTMLInputElement>('input[type="text]"');
+form?.addEventListener("submit", (e) => {
+  // Prevenimos la recarga de la página
+  e.preventDefault();
+  const what = input?.value;
+  if (input) {
+    input.value = "";
+  }
+  const todo = new TodoItem(what || "error");
+  // Alteramos el modelo
+  todos.push(todo);
+  // Alteramos el DOM
+  const todoDOM = renderTodoItem(todo);
+  document.getElementById("todo-list")?.append(todoDOM);
+});
 
 render();

@@ -7,3 +7,14 @@ h1 {
   padding: 1em 0;
   border: 1px solid blue;
 }
+
+.todo-item {
+  padding: 0.5em;
+  margin-left: 2em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.todo-item.done {
+  text-decoration: line-through;
+}
