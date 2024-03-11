@@ -35,30 +35,58 @@ const renderTodoItem = (todo: TodoItem) => {
   return div;
 };
 
+const form = document.querySelector("form");
+
 const render = () => {
   const todoDiv = document.getElementById("todo-list");
+
+  todoDiv.textContent = "";
   if (todoDiv === null) {
     throw new Error("No está en el DOM");
   }
   todoDiv.append(...todos.map(renderTodoItem));
 };
 
-const form = document.querySelector("form");
 const input = document.querySelector<HTMLInputElement>('input[type="text"]');
+if (input === null) {
+  throw new Error("El input no está en el DOM!");
+}
 form?.addEventListener("submit", (e) => {
   // Prevenimos la recarga de la página
   e.preventDefault();
 
+  // Vaciamos la caja de texto
   const what = input?.value;
   if (input) {
     input.value = "";
   }
-  const todo = new TodoItem(what || "error");
-  // Alteramos el modelo
-  todos.push(todo);
-  // Alteramos el DOM
-  const todoDOM = renderTodoItem(todo);
-  document.getElementById("todo-list")?.append(todoDOM);
+
+  // Controlamos el caso todo vacío
+  if (what.length == 0) {
+    console.log("No se puede añadir un 'todo' vacío");
+  } else {
+    const todo = new TodoItem(what);
+    // Alteramos el modelo
+    todos.push(todo);
+    // Alteramos el DOM
+    const todoDOM = renderTodoItem(todo);
+    document.getElementById("todo-list")?.append(todoDOM);
+  }
 });
 
+const buttonClear = document.getElementById("clear-button");
+if (buttonClear === null) {
+  throw new Error("No está en el DOM");
+}
+
+buttonClear.addEventListener("click", () => {
+  console.log("click");
+  const pending = todos.filter((todo) => !todo.done);
+
+  console.log(todos.length);
+  console.log(pending);
+  todos.splice(0, todos.length, ...pending);
+  console.log(todos);
+  render();
+});
 render();
