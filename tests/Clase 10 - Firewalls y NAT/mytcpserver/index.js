@@ -15,4 +15,15 @@ function handleConnection(socket) {
   console.log(
     `Connection from socket ${socket.remoteAddress} : ${socket.remotePort}`
   );
+  socket.setEncoding("utf-8");
+  socket.on("data", onConnData);
+
+  function onConnData(data) {
+    console.log(
+      `Data from ${socket.remoteAddress} : ${socket.remotePort} ${data}`
+    );
+
+    //Respondemos el mismo texto en mayusculas
+    socket.write(data.toUpperCase());
+  }
 }
