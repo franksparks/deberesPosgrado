@@ -6,8 +6,8 @@ const { PORT } = process.env;
 
 const app = express();
 
-app.use(cors);
-app.use(morgan(""));
+app.use(cors());
+app.use(morgan("dev"));
 app.use(express.json());
 
 app.get("/", async (req, res) => {
