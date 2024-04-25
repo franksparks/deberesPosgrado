@@ -1,0 +1,28 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Forums API",
+    "collectionId": "c77a6c74-3f70-4cc3-af1d-bd777d91f5f7",
+    "dateExported": "2024-04-25T18:31:25.128Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "0cb74d04-d08f-4e28-9e5c-ab8b3f18fc47",
+            "colId": "c77a6c74-3f70-4cc3-af1d-bd777d91f5f7",
+            "containerId": "",
+            "name": "GET all Forums",
+            "url": "/forums",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-04-25T18:25:46.714Z",
+            "modified": "2024-04-25T18:30:41.717Z",
+            "headers": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "http://localhost:8888"
+        }
+    },
+    "ref": "eYzQVdj3tM63qMTAW5b2YL8_usgfpESvKpc760mb9lpMBh7E7CUHZANjRjrYHmggh5JmpTNM613vgFswICWs2Q"
+}
