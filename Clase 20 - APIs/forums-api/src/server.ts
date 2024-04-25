@@ -1,9 +1,8 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import { db } from "./db";
-import { setupForumEndpoints } from "./forums";
-import { setupUserEndpoints } from "./users";
+import forumsRouter from "./forums";
+import usersRouter from "./users";
 
 const { PORT } = process.env;
 
@@ -17,8 +16,8 @@ app.use(express.json());
   Si un handler es async, necesita sí o sí un try catch
   En caso contrario, el servidor podría caer
 */
-setupForumEndpoints(app);
-setupUserEndpoints(app);
+app.use("/forums", forumsRouter);
+app.use("/users", usersRouter);
 
 app.listen(PORT, () => {
   console.log(`Forum API listening on http://localhost:${PORT}`);
