@@ -1,7 +1,8 @@
 import { db } from "./db";
 import { Router } from "express";
+import { send } from "./response";
 
-const forumsRouter = Router();
+const router = Router();
 
 /*
 GET /forums
@@ -11,33 +12,54 @@ PUT /forums/:id -- sobreescribe
 PATCH /forums/:id -- actualiza
 DELETE /forums/id
 
-
+200 - OK
+201 - Created
+400 - Bad request
+404 - Not Found
+500 - Internal Server error
+501 - Not implemented
 */
-forumsRouter.get("/", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const forums = await db.forum.findMany({
       orderBy: {
         createdAt: "asc",
       },
     });
-    res.status(200).json(forums);
+    send(res).OK(forums);
   } catch (e) {
-    res.status(500).json({ error: "Internal error" });
+    send(res).InternalError("Could not get forums!");
   }
 });
-forumsRouter.post("/", async (req, res) => {
+
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const forum = await db.forum.findUniqueOrThrow({
+      where: { forumId: Number(id) },
+    });
+    send(res).OK(forum);
+  } catch (e: any) {
+    if (e.name === "NotFoundError") {
+      send(res).NotFound;
+    }
+    send(res).InternalError;
+  }
+});
+
+router.post("/", async (req, res) => {
   try {
     const { name } = req.body;
     if (name === undefined || typeof name !== "string") {
-      return res.status(400).json({ error: "Missing name" });
+      send(res).BadRequest;
     }
     const forum = await db.forum.create({
       data: { name },
     });
-    res.status(201).json(forum);
+    send(res).Created(forum);
   } catch (e) {
-    res.status(500).json({ error: "Something went wrong, try later" });
+    send(res).InternalError("Cannot post!");
   }
 });
 
-export default forumsRouter;
+export default router;
