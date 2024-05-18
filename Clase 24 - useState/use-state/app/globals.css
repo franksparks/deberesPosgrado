@@ -17,10 +17,6 @@ body {
   }
 }
 
-.pad-1 {
-  padding: 1em;
-}
-
-.w-10 {
-  width: 10em;
+h1 {
+  @apply font-bold text-3xl mb-3;
 }
