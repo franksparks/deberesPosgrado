@@ -1,11 +1,10 @@
 "use client";
-
 import UserComponent from "@/components/UserComponent";
 import { loadUsers, User } from "@/lib/users";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function Page() {
   const [userList, setUserList] = useState<User[] | null>(null);
 
   const renderLoading = () => {
