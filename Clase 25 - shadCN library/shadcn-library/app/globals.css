@@ -74,3 +74,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+h1 {
+  @apply font-bold text-xl mb-4;
+}
+
+a {
+  @apply text-blue-600;
+}
