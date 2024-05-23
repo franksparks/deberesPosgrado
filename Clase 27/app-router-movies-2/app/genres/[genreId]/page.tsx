@@ -1,5 +1,7 @@
+import MovieCard from "@/components/MovieCard";
 import {
   getAllMovies,
+  getMovieGenres,
   getMoviesWithGenre,
   Movie,
 } from "@/lib/movies";
@@ -28,14 +30,19 @@ export default async function page({ params }: PageProps) {
   return (
     <main>
       <div className="underline">
-        Id de la categoría seleccionada:{" "}
-        <strong>{genreId}</strong>
+        Id de la categoría seleccionada: <strong>{genreId}</strong>
       </div>
-      <div>
+      <div className="flex flex-wrap gap-2">
         {movies.map((movie) => (
-          <div key={movie.id}>{movie.original_title}</div>
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </main>
   );
+}
+
+export async function generateStaticParams() {
+  const genres = await getMovieGenres();
+
+  return genres.map((genre) => ({ genreId: String(genre.id) }));
 }

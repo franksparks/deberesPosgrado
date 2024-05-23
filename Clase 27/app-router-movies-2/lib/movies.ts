@@ -8,6 +8,7 @@ export type Movie = {
   original_title: string;
   overview: string;
   release_date: Date;
+  poster_path: string;
 };
 
 const tmdbFetch = async (path: string) => {
@@ -27,9 +28,7 @@ const tmdbFetch = async (path: string) => {
   return await response.json();
 };
 export const getMovieGenres = async () => {
-  const { genres } = await tmdbFetch(
-    "/genre/movie/list?language=en"
-  );
+  const { genres } = await tmdbFetch("/genre/movie/list?language=en");
   return genres as Genre[];
 };
 
@@ -48,4 +47,8 @@ export const getMoviesWithGenre = async (genreIds: number[]) => {
 
 export const getAllMovies = async () => {
   return getMoviesWithGenre([]);
+};
+
+export const getMoviePosterPath = (movie: Movie) => {
+  return `https://image.tmdb.org/t/p/w154${movie.poster_path}`;
 };
